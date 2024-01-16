@@ -1,0 +1,28 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+    
+}
+
+
+
+#teste{
+    font-weight: bold;
+    font-style: oblique;
+}
+
+#teste2{
+    color: white;
+}
+
+#teste2:hover{
+    color: orange;
+}
+
+.tete{
+    border:3px;
+}
+
+
+
