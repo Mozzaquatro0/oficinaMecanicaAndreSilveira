@@ -10,7 +10,7 @@ Novo Cliente
 {{route('users.create')}} 
 @endsection
 
-<body style="background-color:#8fa2a6">
+<body style="background-color:#45474B">
   
 
 @section('body')
@@ -18,7 +18,7 @@ Novo Cliente
 <div style="background-color: white; border-radius:13px" class="container pb-3 ">
 
 
-<div class="mt-2 text-end me-3 pt-3">
+<div class="mt-3 text-end me-3 pt-3">
   <form action="{{route ('users.index')}}" method="GET">
     <input type="text" name="pesquisa" id="pesquisa" placeholder="nome/placa" value="{{old('pesquisa')}}">
     <button class="btn btn-dark">Pesquisar</button>
@@ -30,12 +30,12 @@ Novo Cliente
 
     
 @endisset
-<div class="row">
+<div class="row ">
 @foreach ($filtros as $filtro)
 <div class="col-3">
-<div class="space-between ms-3">
+<div class="space-between ms-3 text-center border border-warning">
   <div class="">
-    <div class=" text-center border">
+    <div class="text-center">
       <ul class="mt-3">
         <li> <h5>{{$filtro->nome}}</h5></li>
         <li> <p>{{$filtro->placa}}</p></li>
@@ -64,9 +64,9 @@ Novo Cliente
   
 @foreach ($clientes as $cliente)
 <div class="col-3 pe-3">
-    <div class="card space-between mt-3 ms-3" style="width: 18rem;">
+    <div class="card space-between mt-3 ms-3 " style="width: 18rem;">
 
-      <ul class="list-group list-group-flush text-center p-3">
+      <ul class="list-group list-group-flush text-center p-3 border border-warning">
         <h5 class="card-title text-center">{{$cliente->nome}}</h5>
         <p class="card-text text-center">{{$cliente->placa}}</p>      
         <p class="card-text text-center">{{$cliente->carro}}</p>      

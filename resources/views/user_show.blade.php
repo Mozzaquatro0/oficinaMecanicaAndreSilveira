@@ -15,13 +15,13 @@ Voltar para o ínicio
 
 @section('body')
 
-<body style="background-color:#8fa2a6;">
+<body style="background-color:#45474B;">
     
 
 <div style="background-color:white; border-radius:13px" class="container mt-3 pt-3">
 
     
-
+    
     <div class="row text-center">
         <div class="row justify-content-md-center text-decoration-underline"><h1>INFORMAÇÃO DO CLIENTE</h1></div>
         <div class="ms-3 col-sm-2 border">
@@ -77,6 +77,9 @@ Voltar para o ínicio
             </div>
         </div>
 
+        @if(session()->has('message'))
+        <h5 class="w-100 bg-success text-white ms-3 me-3 text-center">{{session()->get('message')}}</h5>
+        @endif
         <div class="row">
             <div class="col">
                 <table class="table table-warning table-striped-row table-bordered border-warning">
@@ -100,9 +103,18 @@ Voltar para o ínicio
                             <td scope="row">{{$filtro['valor']}}</td>
                             <td scope="row">{{ date('d \d\e F \d\e Y', strtotime($filtro['data_servico']))}}</td>
                             <td scope="row" class="text-center">
-                                <a href="">EDITAR</a>
-                                /
-                                <a href=""></a> EXCLUIR </td>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-success me-3 ps-3 pe-3">
+                                        <a href="{{route ('servicos.show', ['servico' => $filtro->id,])}}" class="text-white" style="text-decoration:none">EDITAR</a>
+                                    </button>
+                                    
+                                    <form action=" {{ route('servicos.destroy',['servico' => $filtro->id])}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button class="btn btn-danger ps-3 pe-3 fw-bold" type="submit">EXCLUIR</button>
+                                    </form>
+                                </div>
+                                
                             @endforeach
                         </tr>
                     </tbody>

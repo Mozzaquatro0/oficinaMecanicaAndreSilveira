@@ -34,6 +34,12 @@ Route::delete('/users/{user}', [ClienteController::class, 'destroy'])->name('use
 
 Route::get('/servicos/create}', [ServicoController::class, 'create'])->name('servicos.create');
 Route::post('/servicos', [ServicoController::class, 'store'])->name('servicos.store');
+Route::match(['get', 'post'], '/servicos/{servico}', [ServicoController::class, 'show'])->name('servicos.show');
+Route::put('/servicos/{servico}', [ServicoController::class, 'update'])->name('servicos.update');
+Route::delete('/servicos/{servico}', [ServicoController::class, 'destroy'])->name('servicos.destroy');
+
+
+
 
 
 

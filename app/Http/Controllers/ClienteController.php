@@ -74,7 +74,7 @@ class ClienteController extends Controller
         $servicoCliente= Servico::where('id_cliente', $cliente->id)->get()->toArray();
         $data1=Servico::distinct()->where('id_cliente',$cliente->id)->selectRaw('substr(data_servico,1,4) as data_servico')->orderBy('data_servico','desc')->get();
         $data=Servico::distinct()->selectRaw('substr(data_servico,1,4) as data_servico')->orderBy('data_servico','desc')->get();
-        // dd($data);
+        //   dd($user);
         // dd($filtro=Servico::where('id_cliente',$cliente->id)->get());
           if($request->filtro!= 'todos'){
             $filtro=Servico::where('id_cliente',$cliente->id)->whereYear('data_servico',date("{$request->filtro}"))->get()->toArray();
@@ -114,7 +114,6 @@ class ClienteController extends Controller
     public function destroy(string $id)
     {
         $this->cliente->where('id', $id)->delete();
-        return redirect()->route('users.index');
     }
 
     public function filtrar(Request $request)

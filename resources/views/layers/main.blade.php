@@ -27,7 +27,7 @@
 
             <nav class="navbar navbar-expand-lg bg-warning">
                 <div class="container-fluid">
-                  <a style="color: aliceblue; font-weight:bold" class="navbar-brand" href="#">Oficina André Silveira</a>
+                  <a style="color: aliceblue; font-weight:bold" class="navbar-brand" href="http://localhost:8000">Oficina André Silveira</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>

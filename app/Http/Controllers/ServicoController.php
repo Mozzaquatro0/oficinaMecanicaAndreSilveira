@@ -63,7 +63,11 @@ class ServicoController extends Controller
      */
     public function show(Servico $servico)
     {
-        //
+        $servicos=$servico;
+        // dd($servico);
+        
+        return view('editar_servico',['servico'=> $servicos]);
+
     }
 
     /**
@@ -77,16 +81,27 @@ class ServicoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Servico $servico)
+    public function update(Request $request, string $id)
     {
-        //
+        $update = $this->servico->where('id', $id)->update($request->except(
+            ['_token', '_method']
+        ));
+        if ($update) {
+            return redirect()->back()->with('message','Alterado com sucesso!');
+        }
+        return redirect()->back()->with('message','Algo inexperado ocorreu!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Servico $servico)
+    public function destroy(string $id)
     {
-        //
+        $delete=$this->servico->where('id', $id)->delete();
+        if($delete){
+            return redirect()->back()->with('message', 'Serviço excluído com sucesso!');
+        }
+        return redirect()->back()->with('message', 'Erro inexperado!');
+
     }
 }
